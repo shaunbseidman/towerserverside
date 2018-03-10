@@ -2,12 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const app = express();
+const cors = require('cors')
 
 const nike = require("./routes/nike");
 const adidas = require("./routes/adidas")
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(cors())
+
 
 app.use("/nike", nike);
 app.use("/adidas", adidas)
